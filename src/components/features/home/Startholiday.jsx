@@ -99,7 +99,7 @@ const Startholiday = () => {
               {data.travelers}
             </span>
             <br />
-            travelers
+            Travelers
           </div>
 
           <div className="text-center">
@@ -109,10 +109,10 @@ const Startholiday = () => {
               className="w-10 sm:w-12 h-10 sm:h-12 mx-auto mb-2"
             />
             <span className="text-base sm:text-lg font-bold">
-              {data.citiess}
+              {data.cities}
             </span>
             <br />
-            travelers
+            Cities
           </div>
 
           <div className="text-center">
@@ -125,7 +125,7 @@ const Startholiday = () => {
               {data.treasures}
             </span>
             <br />
-            travelers
+            Treasures
           </div>
         </div>
       </div>
