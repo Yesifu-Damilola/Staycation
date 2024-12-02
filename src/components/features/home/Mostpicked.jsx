@@ -1,8 +1,6 @@
-
-import { useFetch } from "@/hook/useFetch";
+import { useFetch } from "../../../hook/useFetch";
 import { Link } from "react-router-dom";
 import { CustomSpan } from "../../constant/CustomSpan";
-
 
 const Mostpicked = () => {
   const { data: hotels, status, error } = useFetch("most picked");
