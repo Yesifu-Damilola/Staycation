@@ -22,15 +22,14 @@ const Startholiday = () => {
           .single();
 
         if (error) {
-          throw error(error); // Corrected error handling
+          throw error(error);
         }
         setData(statistics);
 
-        // Assuming 'statistics.images' contains the array of image URLs
         if (statistics?.images) {
-          setImages(statistics.images); // Correctly set images
+          setImages(statistics.images);
         } else {
-          setImages([]); // Default to an empty array if no images
+          setImages([]);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -43,12 +42,11 @@ const Startholiday = () => {
   }, []);
 
   useEffect(() => {
-    // Automatically change images
-    if (images.length === 0) return; // No images to display
+    if (images.length === 0) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Cycle through images
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images]);

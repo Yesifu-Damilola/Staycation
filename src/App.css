@@ -1,4 +1,3 @@
-
 /* Houses with backyard starts  */
 .backyard {
   color: #152c5b;
@@ -76,7 +75,6 @@
 /* Houses with backyard ends  */
 
 /*House details Second page starts */
-
 
 .house-span {
   color: #152c5b;
@@ -273,10 +271,6 @@
   margin-top: 18px;
   border-radius: 4px;
 }
-*/
-/* Booking information ends  */
-
-/* payment slip starts */
 
 .payment-usd {
   padding-right: 4rem;
@@ -319,4 +313,3 @@
 .tesla-span {
   margin-left: 5rem;
 }
-
