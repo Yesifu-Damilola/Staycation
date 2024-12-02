@@ -62,11 +62,13 @@ const Mostpicked = () => {
                 className="absolute top-0 right-0"
               />
               <span
-                className={`text-xl font-bold absolute bottom-2 left-5 py-6`}
+                className={`text-xl font-bold absolute bottom-2 left-5 py-6 text-[#152C5B] `}
               >
                 {resort.name}
               </span>
-              <p className={`text-base absolute bottom-2 left-5 `}>
+              <p
+                className={`text-base absolute bottom-2 left-5 text-black `}
+              >
                 {resort.location}
               </p>
             </Link>
