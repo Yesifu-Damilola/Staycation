@@ -1,280 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: poppins;
-}
-
-.navbar {
-  /* box-shadow: none; */
-  justify-content: space-between;
-  display: flex;
-  gap: 50rem;
-}
-.nav-item {
-  padding-left: 1.8rem;
-  /* font-family: poppins; */
-  font-size: 16px;
-}
-.nav-link {
-  color: rgb(21, 44, 91);
-  font-weight: normal;
-}
-.phase1 {
-  gap: 22rem;
-  margin-top: 3rem;
-}
-.staycation {
-  font-size: 24px;
-  font-weight: lighter;
-}
-.stay-span {
-  color: rgb(54, 86, 230);
-}
-.home-nav {
-  color: rgb(50, 82, 223);
-}
-.holiday h3 {
-  font-size: 42px;
-  font-weight: bold;
-  color: rgb(23, 48, 99);
-}
-.holiday p {
-  font-size: 18px;
-  font-weight: light;
-  color: rgb(176, 176, 176);
-  padding-top: 2rem;
-}
-.show-me {
-  background-color: #3252df;
-  font-size: 18px;
-  font-weight: medium;
-  color: #ffff;
-  margin-top: 1rem;
-  margin-bottom: 4rem;
-  padding: 4px;
-  box-shadow: 2px 2px 10px rgb(50, 82, 223);
-  border-radius: 4px;
-  border: none;
-}
-.ic {
-  margin-top: 1.8rem;
-}
-.traveler {
-  color: #b0b0b0;
-}
-.cities {
-  padding: 0 1.5rem;
-  color: #b0b0b0;
-}
-.treasures {
-  color: #b0b0b0;
-}
-.cost {
-  color: #152c5b;
-  font-weight: bold;
-  font-size: 17px;
-}
-.rect {
-  width: 30%;
-  position: relative;
-  padding-top: 2rem;
-  margin-left: 2rem;
-}
-.rect-yacht img {
-  display: block;
-  position: absolute;
-}
-.yacht {
-  width: 30%;
-  position: absolute;
-  border-top-left-radius: 6rem;
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-}
-
-/* Mostpicked starts here */
-.picked {
-  color: #152c5b;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 3rem;
-  margin-bottom: 15px;
-}
-
-.beach-club {
-  position: relative;
-}
-.beach-club img {
-  border: 1px solid;
-  border-radius: 18px;
-}
-.btn1-text {
-  position: absolute;
-  top: 0px;
-  left: 73.5%;
-}
-.btn1-text button {
-  background: #ff498b;
-  color: #ffff;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding: 0px 5px;
-}
-.span-para1 {
-  position: absolute;
-  top: 85%;
-  left: 5%;
-}
-.span-club {
-  color: #152c5b;
-  font-size: 16px;
-  font-weight: bold;
-}
-.para1 {
-  color: #152c5b;
-  font-size: 15px;
-}
-
-/* This is the 2nd phase  */
-.montigo-resort-montana {
-  margin-left: 6.2rem;
-}
-.montigo-resort {
-  position: relative;
-}
-
-.btn2-text {
-  position: absolute;
-  top: 0;
-  left: 73.5%;
-}
-
-.btn2-text button {
-  background: #ff498b;
-  color: #ffff;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding: 0px 5px;
-}
-.span-para2 {
-  position: absolute;
-  top: 75%;
-  left: 5%;
-}
-.span-resorts {
-  color: #152c5b;
-  font-weight: bold;
-  font-size: 20px;
-}
-.para2 {
-  color: #152c5b;
-  font-size: 15px;
-}
-
-/* This is the 3rd phase  */
-.montana {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.btn3-text {
-  position: absolute;
-  top: 0;
-  left: 73.5%;
-}
-.btn3-text button {
-  background: #ff498b;
-  color: #ffff;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding: 0px 1px;
-}
-.span-para3 {
-  position: absolute;
-  top: 60%;
-  left: 5%;
-}
-.span-montana {
-  color: #152c5b;
-  font-weight: bold;
-  font-size: 20px;
-}
-.para3 {
-  color: #152c5b;
-  font-size: 15px;
-}
-
-/* This is the 4th phase */
-.kalpa-caesar {
-  margin-left: 6.2rem;
-}
-.kalpa-tree {
-  position: relative;
-}
-.btn4-text {
-  position: absolute;
-  top: 0;
-  left: 75.6%;
-}
-.btn4-text button {
-  background: #ff498b;
-  color: #ffff;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding: 0px 1px;
-}
-.span-para4 {
-  position: absolute;
-  top: 75%;
-  left: 5%;
-}
-.span-kalpa {
-  color: #152c5b;
-  font-weight: bold;
-  font-size: 20px;
-}
-.para4 {
-  color: #152c5b;
-  font-size: 15px;
-}
-/* This is the 5th phase */
-.caesar-palace {
-  position: relative;
-  margin-top: 2rem;
-}
-.btn5-text {
-  position: absolute;
-  top: 0;
-  left: 75.6%;
-}
-.btn5-text button {
-  background: #ff498b;
-  color: #ffff;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding: 0px 1px;
-}
-.span-para5 {
-  position: absolute;
-  top: 75%;
-  left: 5%;
-}
-.span-caesar {
-  font-weight: bold;
-  color: #152c5b;
-  font-size: 20px;
-}
-.para5 {
-  color: #152c5b;
-  font-size: 15px;
-}
-/* Mostpicked ends here */
 
 /* Houses with backyard starts  */
 .backyard {
@@ -352,109 +75,9 @@
 }
 /* Houses with backyard ends  */
 
-/* Hotel with living-room starts  */
-.living-room {
-  color: #152c5b;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 2rem;
-  margin-bottom: 12px;
-}
-.cashville {
-  position: relative;
-}
-.btn7-text {
-  position: absolute;
-  top: 0px;
-  left: 63%;
-}
-.btn7-text button {
-  background: #ff498b;
-  color: #ffff;
-  border: none;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  padding: 0px 1px;
-}
-/* Hotel with living-room ends  */
-
-/* Apartement with kitchen starts */
-.apartement-kitchen {
-  color: #152c5b;
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 2rem;
-  margin-bottom: 12px;
-}
-.minimal {
-  position: relative;
-  margin-right: 4.8rem;
-}
-/* Apartement with kitchen ends */
-
-/* Happy family starts */
-.happy-family {
-  margin-top: 3rem;
-  display: flex;
-  margin-bottom: 10rem;
-  gap: 4rem;
-}
-.family-rect {
-  position: relative;
-  width: 85%;
-}
-.family-pic {
-  position: absolute;
-  object-fit: cover;
-  width: 20%;
-  margin-top: 2rem;
-  margin-left: 3rem;
-}
-
-.family-info {
-  margin-top: 4.5rem;
-}
-.family-info h3 {
-  font-size: 24px;
-  color: #152c5b;
-  font-weight: bold;
-  margin-bottom: 2.5rem;
-}
-.family-info img {
-  background-image: #ffcc47;
-  margin-bottom: 1.5rem;
-}
-.family-info p {
-  color: #152c5b;
-  font-size: 30px;
-  font-weight: 500;
-}
-.ui-ux {
-  color: #152c5b;
-  font-size: 18;
-  font-weight: lighter;
-}
-.stories-btn {
-  background: #3252df;
-  color: #ffff;
-  font-size: 18;
-  border: none;
-  padding: 8px 18px;
-  margin-top: 1.5rem;
-  border-radius: 4px;
-  box-shadow: 1px 1px 10px rgb(50, 82, 223);
-}
-/* Happy family ends */
 /*House details Second page starts */
-.home {
-  margin-top: 4rem;
-  margin-bottom: 3.5rem;
-  gap: 18rem;
-}
-.home-p {
-  color: #b0b0b0;
-  font-size: 18px;
-}
+
+
 .house-span {
   color: #152c5b;
   font-size: 18px;
@@ -464,10 +87,7 @@
   font-size: 42px;
   font-weight: bold;
 }
-.resort-rio span {
-  color: #b0b0b0;
-  font-size: 18px;
-}
+
 .homes {
   gap: 9.7rem;
 }
@@ -491,11 +111,7 @@
 /* Footer ends  */
 
 /* About the place starts */
-.abouttheplace {
-  /* text-align: center; */
-  /* justify-content: space-between; */
-  gap: 14.6rem;
-}
+
 .aboutplace h3 {
   color: #152c5b;
   font-size: 24px;
@@ -529,74 +145,7 @@
 .ic-rooms {
   color: #b0b0b0;
 }
-/* About the place ends */
 
-/* card start booking starts */
-.card {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  border: 1px solid#e5e5e5;
-  margin-bottom: auto;
-}
-.booking h3 {
-  color: #152c5b;
-  font-size: 24px;
-  font-weight: 600;
-  padding-bottom: 0.5rem;
-}
-.dollar,
-.per-night {
-  color: #1abc9c;
-  font-size: 36px;
-}
-.per-night {
-  color: #b0b0b0;
-}
-.stay {
-  color: #000000;
-  font-size: 18px;
-  padding-top: 1rem;
-  display: block;
-}
-.btnminus,
-.btnadd {
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: bolder;
-  padding: 0px 12px;
-  border: none;
-  background-color: #e74c3c;
-}
-.btnadd {
-  background-color: #1abc9c;
-}
-.num {
-  font-size: 17px;
-  color: #000000;
-  background-color: #f5f6f8;
-  padding: 16px 111px 10px 116px;
-}
-.pickadate {
-  font-size: 17px;
-  color: #000000;
-  padding-top: 1.5rem;
-  display: block;
-}
-.calendar {
-  background-color: #152c5b;
-  padding: 4px;
-}
-.calendar-img {
-  border: none;
-  border-radius: 4px;
-}
-.date {
-  color: #000000;
-  font-size: 17px;
-  padding: 7px 107px;
-}
 .youpay {
   color: #b0b0b0;
   font-size: 18px;
@@ -605,50 +154,13 @@
   color: #000000;
   font-weight: bold;
 }
-.book-btn {
-  color: #ffffff;
-  background-color: #3252df;
-  font-size: 16px;
-  border: none;
-  box-shadow: 2px 2px 10px rgb(50, 82, 223);
-  border-radius: 4px;
-  padding: 7px 127px;
-  margin-top: 5px;
-  margin-bottom: 3rem;
-}
-/* card start booking ends */
-/* Things to do starts */
-.thingstodo {
-  margin-top: 4rem;
-  margin-bottom: 3rem;
-}
-.thingstodo h3 {
-  color: #152c5b;
-  font-size: 24px;
-  font-weight: 700;
-}
-.nature-town {
-  margin-right: 4.8rem;
-}
-.nature-town span {
-  color: #152c5b;
-  font-size: 17px;
-  font-weight: bold;
-  margin: 5rem 0rem;
-}
-.nature-town p {
-  color: #b0b0b0;
-  font-weight: 14px;
-}
+
 .families,
 .family-pic {
   border-radius: 1rem 1rem 8rem 1rem;
 }
-/* Things to do ends */
 
-/* Booking information starts  */
-
-/* .booking-btn {
+.booking-btn {
   margin: 2.5rem 0;
   text-align: center;
   justify-content: center;
@@ -685,10 +197,7 @@
   font-size: 17px;
   color: #b0b0b0;
 }
-.cashville-kemang {
-  display: flex;
-  justify-content: center;
-}
+
 .booking-btn2 {
   margin: 0 10px;
 }
@@ -763,14 +272,12 @@
   padding: 8px 10px;
   margin-top: 18px;
   border-radius: 4px;
-} */
+}
+*/
 /* Booking information ends  */
 
 /* payment slip starts */
-/* .payment {
-  align-content: center;
-  justify-content: center;
-}
+
 .payment-usd {
   padding-right: 4rem;
 }
@@ -811,35 +318,5 @@
 }
 .tesla-span {
   margin-left: 5rem;
-} */
-/* .text-name input { */
-/* color: #152c5b; */
-/* }
-.btn-book {
-  box-shadow: 1px 1px 10px rgb(50, 82, 223);
 }
-.pay-submit {
-  margin-top: 20px;
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 2rem;
-} */
-/* payment slip ends */
-/* transaction completed starts */
-/* .complete {
-  text-align: center;
-  justify-content: center;
-}
-.check-completed {
-  padding: 7px;
-} */
-/* .succes { */
-/* padding-top: 2rem; */
-/* margin-left: 5rem;
-}
-.accepted span {
-  color: #b0b0b0;
-  font-size: 15px;
-} */
 
-/* transaction completed ends */

@@ -1,76 +1,80 @@
+import { CustomSpan } from "../../constant/CustomSpan";
+import { useFetch } from "../../../hook/useFetch";
+import { Link } from "react-router-dom";
+
+
 const Mostpicked = () => {
+  const { data: hotels, status, error } = useFetch("most picked");
+
+  if (status) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p>Error: {error}</p>
+      </div>
+    );
+  }
+  if (!hotels) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p>No hotels available</p>
+      </div>
+    );
+  }
+
   return (
-    <>
-      <div className="container pb-5">
-        <h3 className="picked">Most Picked</h3>
-        <div className="pools d-flex">
-          <div className="beach-club">
-            <div className="club-pool">
-              <img src="src/assets/Rectangle 19.png" alt="club-pool" />
-            </div>
-            <div className="btn1-text">
-              <button>$50 per night</button>
-            </div>
-            <div className="span-para1">
-              <span className="span-club">Finns Beach Club</span>
-              <p className="para1">Denpasar, Ball</p>
-            </div>
-          </div>
-          <div className="montigo-resort-montana">
-            <div className="montigo-resort">
-              <div className="resort-pool">
-                <img src="src/assets/Rectangle 19 (2).png" alt="resort-pool" />
-              </div>
-              <div className="btn2-text">
-                <button>$22 per night</button>
-              </div>
-              <div className="span-para2">
-                <span className="span-resorts">Montigo Resort</span>
-                <p className="para2">Rio De Janeiro, Brazil</p>
-              </div>
-            </div>
-            <div className="montana">
-              <div className="relax-pool">
-                <img src="src/assets/pic (4).png" alt="relax-pool" />
-              </div>
-              <div className="btn3-text">
-                <button>$858 per night</button>
-              </div>
-              <div className="span-para3">
-                <span className="span-montana">Montana</span>
-                <p className="para3">Berlin, Germany</p>
-              </div>
-            </div>
-          </div>
-          <div className="kalpa-caesar">
-            <div className="kalpa-tree">
-              <div className="hotel-pool">
-                <img src="src/assets/pic 3.png" alt="hotel-pool" />
-              </div>
-              <div className="btn4-text">
-                <button>$62 per night</button>
-              </div>
-              <div className="span-para4">
-                <span className="span-kalpa">Kalpa Tree</span>
-                <p className="para4">Ternate, Nusa Tenggara Barat </p>
-              </div>
-            </div>
-            <div className="caesar-palace">
-              <div className="side-pool">
-                <img src="src/assets/pic (5).png" alt="side-pool" />
-              </div>
-              <div className="btn5-text">
-                <button>$72 per night</button>
-              </div>
-              <div className="span-para5">
-                <span className="span-caesar">Caesar Palace</span>
-                <p className="para5">Las Vegas, America</p>
-              </div>
-            </div>
-          </div>
+    <div className="wrapper ">
+      <h3 className="text-[#152c5b] text-2xl font-bold px-4 ">Most Picked</h3>
+      <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-6 place-items-center p-4 ">
+        <div
+          className={` bg-cover bg-center w-full h-[460px]  relative rounded-3xl`}
+          style={{
+            background: `url(${hotels[0]?.images[0]})`,
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <CustomSpan
+            text={`${hotels[0]?.price} per ${hotels[0]?.duration}`}
+            className=" absolute top-0 right-[2px]"
+          />
+          <span className="text-[#152c5b] text-base font-bold absolute bottom-2 left-5 py-6">
+            {hotels[0]?.name}
+          </span>
+          <p className="text-[#152c5b] text-base absolute bottom-2 left-5">
+            {hotels[0]?.location}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full ">
+          {hotels?.slice(1, 5).map((resort) => (
+            <Link
+              to={`/${resort?.id}`}
+              key={resort?.id}
+              className={`relative w-full h-[215px] rounded-2xl px-4 bg-cover bg-center`}
+              style={{ background: `url(${resort.images[0]})` }}
+            >
+              <CustomSpan
+                text={`$${resort?.price} per ${resort.duration}`}
+                className="absolute top-0 right-0"
+              />
+              <span
+                className={`text-xl font-bold absolute bottom-2 left-5 py-6`}
+              >
+                {resort.name}
+              </span>
+              <p className={`text-base absolute bottom-2 left-5 `}>
+                {resort.location}
+              </p>
+            </Link>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

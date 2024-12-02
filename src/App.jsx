@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import "./index.css";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Info from "./pages/info";
@@ -14,7 +15,8 @@ function App() {
       <Routes>
         {/* <Navbar /> */}
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/:id" element={<About />} />
+        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/info" element={<Info />} />
         <Route path="/infor" element={<Infor />} />
         <Route path="/payments" element={<Payments />} />

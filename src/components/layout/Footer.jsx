@@ -3,122 +3,105 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="">
-        <footer className="footer-div text-center text-lg-start bg-body-tertiary text-muted">
-          <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-            <div className="me-5 d-none d-lg-block">
-              <span className="network">
-                Get connected with us on social networks:
+      <footer className="pt-8">
+        <hr className="border border-[#E5E5E5] my-10" />
+
+        <section className="wrapper md:flex flex-wrap items-start justify-center md:justify-between gap-4 py-4">
+         
+          <div className="space-y-2 w-full sm:w-3/4 md:w-1/2 lg:w-auto text-center md:text-left">
+            <Link to="/" className="text-2xl font-bold text-[#152C5B]">
+              <span className="text-[#3252DF]">Stay</span>cation.
+            </Link>
+            <p className="text-[#B0B0B0] text-lg py-2 max-w-xs mx-auto md:mx-0">
+              We kaboom your beauty holiday instantly and memorably.
+            </p>
+          </div>
+
+         
+          <div className="space-y-2 w-full sm:w-1/2 md:w-1/4 lg:w-auto text-center md:text-left">
+            <h3 className="text-[#152C5B] text-lg font-semibold">
+              For Beginners
+            </h3>
+            <div>
+              <Link to="/payment" className="text-[#B0B0B0] text-base block">
+                New Account
+              </Link>
+            </div>
+            <div>
+              <Link to="/info" className="text-[#B0B0B0] text-base block">
+                Book a Room
+              </Link>
+            </div>
+            <div>
+              <Link to="/payments" className="text-[#B0B0B0] text-base block">
+                Payments
+              </Link>
+            </div>
+          </div>
+
+      
+          <div className="space-y-2 w-full sm:w-1/2 md:w-1/4 lg:w-auto text-center md:text-left">
+            <h3 className="text-[#152C5B] text-lg font-semibold">Explore Us</h3>
+            <div>
+              <Link to="/about" className="text-[#B0B0B0] text-base block">
+                About
+              </Link>
+            </div>
+            <div>
+              <Link to="/" className="text-[#B0B0B0] text-base block">
+                Privacy Policy
+              </Link>
+            </div>
+            <div>
+              <Link to="/" className="text-[#B0B0B0] text-base block">
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
+
+          <div className="space-y-2 w-full sm:w-3/4 md:w-1/2 lg:w-auto text-center md:text-left">
+            <h3 className="text-[#152C5B] text-lg font-semibold">
+              Getting Touch
+            </h3>
+            <div>
+              <Link
+                to="mailto:support@staycation.id"
+                className="text-[#B0B0B0] text-base block"
+              >
+                support@staycation.id
+              </Link>
+            </div>
+            <div>
+              <Link
+                to="mailto:info@example.com"
+                className="text-[#B0B0B0] text-base block"
+              >
+                info@example.com
+              </Link>
+            </div>
+            <div>
+              <Link
+                to="tel:02122081996"
+                className="text-[#B0B0B0] text-base block"
+              >
+                021 - 2208 - 1996
+              </Link>
+            </div>
+            <div>
+              <span className="text-[#B0B0B0] text-base block">
+                Staycation Oy, Jakarta
               </span>
             </div>
-
-            <div className="social-handle">
-              <Link to="/" className="me-4 text-reset">
-                <i className="fab fa-facebook-f"></i>
-              </Link>
-              <Link to="/" className="me-4 text-reset">
-                <i className="fab fa-twitter"></i>
-              </Link>
-              <Link to="/" className="me-4 text-reset">
-                <i className="fab fa-google"></i>
-              </Link>
-              <Link to="/" className="me-4 text-reset">
-                <i className="fab fa-instagram"></i>
-              </Link>
-              <Link to="/" className="me-4 text-reset">
-                <i className="fab fa-linkedin"></i>
-              </Link>
-              <Link to="/" className="me-4 text-reset">
-                <i className="fab fa-github"></i>
-              </Link>
-            </div>
-          </section>
-
-          <section className="">
-            <div className="container text-center text-md-start mt-5">
-              <div className="row mt-3">
-                <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">
-                    <i className="fas fa-gem me-3"></i>
-                    <span className="stay-span">Stay</span>cation.
-                  </h6>
-                  <p>We kaboom your beauty holiday instantly and memorable.</p>
-                </div>
-
-                <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">For Beginners</h6>
-                  <p>
-                    <Link to="/payment" className="text-reset">
-                      New Account
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="/infor" className="text-reset">
-                      Book a Room
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="/payments" className="text-reset">
-                      Payments
-                    </Link>
-                  </p>
-                </div>
-
-                <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">Explore Us</h6>
-                  <p>
-                    <Link to="/about" className="text-reset">
-                      About
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="/" className="text-reset">
-                      Privacy Policy
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="/" className="text-reset">
-                      Terms &
-                    </Link>
-                  </p>
-                  <p>
-                    <Link to="/" className="text-reset">
-                      Conditions
-                    </Link>
-                  </p>
-                </div>
-
-                <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                  <h6 className="text-uppercase fw-bold mb-4">Getting Touch</h6>
-                  <p>
-                    <i className="fas fa-home me-3"></i> support@stayctation.id
-                  </p>
-                  <p>
-                    <i className="fas fa-envelope me-3"></i>
-                    info@example.com
-                  </p>
-                  <p>
-                    <i className="fas fa-phone me-3"></i> 021 - 2208 - 1996
-                  </p>
-                  <p>
-                    <i className="fas fa-print me-3"></i> Staycation Oy, Jakarta
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div
-            className="text-center p-4"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
-          >
-            © 2021 Copyright:
-            <a className="text-reset fw-bold" to="https://mdbootstrap.com/">
-              Copyright 2019 . All rights reserved . Staycation
-            </a>
           </div>
-        </footer>
-      </div>
+        </section>
+
+        <div className="text-center py-6">
+          <Link to="" className="text-[#B0B0B0]">
+            <span> Copyright 2019 &#8226; </span> All rights reserved &#8226;
+            Staycation
+          </Link>
+        </div>
+      </footer>
     </>
   );
 };
