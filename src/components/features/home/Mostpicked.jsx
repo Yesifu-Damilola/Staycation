@@ -1,5 +1,5 @@
-import { CustomSpan } from "../../constant/CustomSpan";
-import { useFetch } from "../../../hook/useFetch";
+import { CustomSpan } from "@/constant/CustomSpan";
+import { useFetch } from "@/hook/useFetch";
 import { Link } from "react-router-dom";
 
 

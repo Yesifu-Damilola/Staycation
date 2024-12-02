@@ -1,5 +1,5 @@
-import bca from "./../assets/bca.png";
-import mandiri from "./../assets/mandiri.png";
+import bca from "@/assets/bca.png";
+import mandiri from "@/assets/mandiri.png";
 import { Check } from "lucide-react";
 
 const Transactionpayment = () => {

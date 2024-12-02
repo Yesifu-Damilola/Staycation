@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import succes from "./../assets/succes .png";
+import succes from "@/assets/succes .png";
 
 const Transcompleted = () => {
   return (

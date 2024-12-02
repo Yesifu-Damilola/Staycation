@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../../../supabase/supabase";
-import travelers from "../../../assets/ic_traveler.png";
-import cities from "../../../assets/ic_cities.png";
-import treasures from "../../../assets/ic_treasures.png";
+import { supabase } from "@/supabase/supabase";
+import travelers from "@/assets/ic_traveler.png";
+import cities from "@/assets/ic_cities.png";
+import treasures from "@/assets/ic_treasures.png";
 
 const Startholiday = () => {
   const [data, setData] = useState(null);

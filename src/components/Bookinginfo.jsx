@@ -1,4 +1,4 @@
-import cashvilles from "../../src/assets/cashvilles.png";
+import cashvilles from "@/assets/cashvilles.png";
 
 const Bookinginfo = () => {
   return (
