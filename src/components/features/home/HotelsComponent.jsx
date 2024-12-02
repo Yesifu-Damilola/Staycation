@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { CustomSpan } from "@/constant/CustomSpan";
 import { useFetch } from "@/hook/useFetch";
 import { Link } from "react-router-dom";
+import { CustomSpan } from "./../../constant/CustomSpan";
 
 const HotelsComponent = ({ categoryName }) => {
   const { data, status, error } = useFetch(categoryName);

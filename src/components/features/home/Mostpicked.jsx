@@ -1,6 +1,7 @@
-import { CustomSpan } from "@/constant/CustomSpan";
+
 import { useFetch } from "@/hook/useFetch";
 import { Link } from "react-router-dom";
+import { CustomSpan } from "../../constant/CustomSpan";
 
 
 const Mostpicked = () => {
