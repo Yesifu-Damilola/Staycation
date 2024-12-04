@@ -59,7 +59,7 @@ const Mostpicked = () => {
       <h3 className="text-[#152c5b] text-2xl font-bold px-4 ">Most Picked</h3>
       <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-6 place-items-center p-4 ">
         <div
-          className={` bg-cover bg-center w-full h-[460px]  relative rounded-3xl`}
+          className={` bg-cover bg-center w-full h-[460px] relative rounded-3xl`}
           style={{
             background: `url(${hotels[0]?.images[0]})`,
             backgroundRepeat: "no-repeat",
@@ -105,18 +105,21 @@ const Mostpicked = () => {
 
       {selectedHotel && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+          <div className="bg-white p-4 rounded-lg shadow-lg md:max-w-2xl w-full">
             {loading ? (
               <p>Loading details...</p>
             ) : (
               <>
-                <h3 className="text-2xl font-bold">{selectedHotel.name}</h3>
+                <h3 className="text-2xl font-bold pb-2">
+                  {selectedHotel.name}
+                </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full ">
+                <div className="grid grid-cols-1 w-full ">
                   <div
-                    className={`relative w-full h-[215px] rounded-2xl px-4 bg-cover bg-center`}
+                    className={`relative w-full h-[215px] md:h-[300px] rounded-2xl bg-cover bg-center`}
                     style={{
                       background: `url(${selectedHotel?.images?.[0] || ""})`,
+                      backgroundSize: "cover",
                     }}
                     onClick={() => fetchHotelDetails(selectedHotel?.id)}
                   >
@@ -124,6 +127,7 @@ const Mostpicked = () => {
                       text={`$${selectedHotel?.price} per ${selectedHotel.duration}`}
                       className="absolute top-0 right-0"
                     />
+
                     <span
                       className={`text-xl font-bold absolute bottom-2 left-5 py-6 text-[#152C5B] `}
                     >
@@ -136,8 +140,11 @@ const Mostpicked = () => {
                     </p>
                   </div>
                 </div>
+                <p className="relative text-[#152C5B] text-base bottom-[-50px] top-3">
+                  {selectedHotel.description}
+                </p>
                 <button
-                  className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+                  className="bg-red-500 text-white px-4 py-2 rounded mt-12"
                   onClick={() => setSelectedHotel(null)}
                 >
                   Close
