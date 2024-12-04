@@ -1,3 +1,5 @@
+import family from "@/assets/family(2).png";
+
 const Happyfamily = () => {
   return (
     <section className="wrapper py-6 px-4 mt-16">
@@ -5,7 +7,7 @@ const Happyfamily = () => {
         <div className="relative">
           <div className="absolute bottom-8 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-[70px] w-[80%] h-full border border-gray-200"></div>
           <img
-            src="src/assets/family(2).png"
+            src={family}
             alt="family(2)"
             className="relative object-cover w-[80%] top-[7%] ml-6 md:w-full"
           />
