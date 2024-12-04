@@ -1,4 +1,5 @@
 import family from "@/assets/family(2).png";
+import starsreview from "@/assets/stars-review.png";
 
 const Happyfamily = () => {
   return (
@@ -18,11 +19,7 @@ const Happyfamily = () => {
             Happy Family
           </h3>
 
-          <img
-            src="src/assets/stars-review.png"
-            alt="stars-review"
-            className="mb-4"
-          />
+          <img src={starsreview} alt="stars-review" className="mb-4" />
 
           <p className="text-[32px] text-[#152C5B] font-medium leading-relaxed mb-4">
             What a great trip with my family and I <br />
