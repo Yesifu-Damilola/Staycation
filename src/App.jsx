@@ -8,6 +8,8 @@ import Infor from "./pages/infor";
 import Transcompleted from "./components/Transcompleted";
 import Payments from "./pages/payments";
 import Payment from "./pages/payment";
+import HotelDetails from "./components/features/home/HotelDetails";
+import Mostpicked from "./components/features/home/Mostpicked";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <Routes>
         {/* <Navbar /> */}
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<About />} />
+        <Route path="/" element={<Mostpicked />} />
+        <Route path="/:id" element={<HotelDetails />} />
+        <Route path="/hotel/:id" element={<About />} />
         {/* <Route path="/about" element={<About />} /> */}
         <Route path="/info" element={<Info />} />
         <Route path="/infor" element={<Infor />} />

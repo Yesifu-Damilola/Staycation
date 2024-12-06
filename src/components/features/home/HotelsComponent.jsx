@@ -52,7 +52,7 @@ const HotelsComponent = ({ categoryName }) => {
               <span className="text-lg font-bold text-[#152c5b]">
                 {houses.name}
               </span>
-              <p className="text-base text-gray-600">{houses.location}</p>
+              <p className="text-base text-[#B0B0B0] ">{houses.location}</p>
             </div>
           </Link>
         ))}
