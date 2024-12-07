@@ -130,8 +130,8 @@ const fetchHotelDetails = async (id) => {
     .eq("id", id)
     .single();
 
-  if (error) {
-    throw new Error(error.message);
+  if (!data || error) {
+    throw new Error("NOT_FOUND");
   }
   return data;
 };
@@ -151,6 +151,7 @@ const HotelDetails = () => {
     enabled: !!id,
     staleTime: 10000,
     refetchInterval: 15000,
+    retry: false,
   });
   if (isLoading) {
     return (
