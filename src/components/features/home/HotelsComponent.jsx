@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { CustomSpan } from "./../../constant/CustomSpan";
 
 const HotelsComponent = ({ categoryName }) => {
-  const { data, status, error } = useFetch(categoryName);
+  // const { data, status, error } = useFetch(categoryName);
+  const { data, isLoading, isError, error } = useFetch(categoryName);
 
-  if (status) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p>Loading...</p>
@@ -14,7 +15,7 @@ const HotelsComponent = ({ categoryName }) => {
     );
   }
 
-  if (error) {
+  if (isError) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p>Error: {error}</p>
@@ -22,7 +23,7 @@ const HotelsComponent = ({ categoryName }) => {
     );
   }
 
-  if (!data) {
+  if (!data || data.length === 0) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p>No data available</p>
@@ -52,7 +53,7 @@ const HotelsComponent = ({ categoryName }) => {
               <span className="text-lg font-bold text-[#152c5b]">
                 {houses.name}
               </span>
-              <p className="text-base text-[#B0B0B0] ">{houses.location}</p>
+              <p className="text-base text-[#B0B0B0]">{houses.location}</p>
             </div>
           </Link>
         ))}

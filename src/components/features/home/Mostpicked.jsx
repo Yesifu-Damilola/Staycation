@@ -1,28 +1,29 @@
 import { Link } from "react-router-dom";
 import { useFetch } from "../../../hook/useFetch";
 import { CustomSpan } from "../../constant/CustomSpan";
-// import { Link } from "react-router-dom";
 
 const Mostpicked = () => {
-  const { data: hotels, status, error } = useFetch("most picked");
-  if (status) {
+  const { data: hotels, isLoading, isError, error } = useFetch("most picked");
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p>Loading...</p>
       </div>
     );
   }
-  if (error) {
+
+  if (isError) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p>Error: {error}</p>
       </div>
     );
   }
-  if (!hotels) {
+
+  if (!hotels || hotels.length === 0) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p>No hotels available</p>
+        <p>No data available</p>
       </div>
     );
   }

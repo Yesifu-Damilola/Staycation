@@ -10,6 +10,7 @@ import Payments from "./pages/payments";
 import Payment from "./pages/payment";
 import HotelDetails from "./components/features/home/HotelDetails";
 import Mostpicked from "./components/features/home/Mostpicked";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/payments" element={<Payments />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/transcompleted" element={<Transcompleted />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
