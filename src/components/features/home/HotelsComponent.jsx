@@ -5,7 +5,13 @@ import { CustomSpan } from "./../../constant/CustomSpan";
 
 const HotelsComponent = ({ categoryName }) => {
   // const { data, status, error } = useFetch(categoryName);
-  const { data, isLoading, isError, error } = useFetch(categoryName);
+
+  const query = {
+    apiName: "hotels",
+    key: "category",
+    value: categoryName,
+  };
+  const { data, isLoading, isError, error } = useFetch(query);
 
   if (isLoading) {
     return (
@@ -38,7 +44,11 @@ const HotelsComponent = ({ categoryName }) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {data?.map((houses) => (
-          <Link to={`/${houses.id}`} key={houses?.id} className="relative">
+          <Link
+            to={`/hotel/${houses.id}`}
+            key={houses?.id}
+            className="relative"
+          >
             <img
               src={houses?.images[0]}
               alt={houses.name}

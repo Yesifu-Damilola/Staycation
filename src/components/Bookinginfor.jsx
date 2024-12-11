@@ -1,6 +1,42 @@
-import cashvilles from "../assets/Cashvilles.png";
+import { useNavigate } from "react-router-dom";
+import cashvilles from "@/assets/Cashvilles.png";
+import { useState } from "react";
 
 const Bookinginfor = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({
+    firstname: "",
+    lastname: "",
+    emailaddress: "",
+    phonenumber: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    if (Object.keys(form).length > 0) {
+      navigate("/payments");
+    }
+  };
+
+  const handleCancel = () => {
+    setForm({
+      firstname: "",
+      lastname: "",
+      emailaddress: "",
+      phonenumber: "",
+    });
+  };
+
+  const isFormComplete =
+    form.firstname && form.lastname && form.emailaddress && form.phonenumber;
+
   return (
     <section className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-center py-10 gap-24 relative">
@@ -47,76 +83,53 @@ const Bookinginfor = () => {
         <div className="hidden md:block border-l-2 border-[#E5E5E5] md:h-[452px]"></div>
 
         <div className="space-y-8 w-full max-w-md pt-5">
-          <div>
-            <label
-              htmlFor="firstname"
-              className="block text-sm font-medium text-gray-700"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              id="firstname"
-              placeholder="Maxwell"
-              className="w-full md:w-[320px] h-[51.56px] bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="lastname"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastname"
-              placeholder="Adis_ababa"
-              className="w-full md:w-[320px] h-[51.56px]  bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="emailaddress"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="emailaddress"
-              placeholder="matlab@gmail.com"
-              className="w-full md:w-[320px] h-[51.56px]  bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="phonenumber"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phonenumber"
-              placeholder="+2348000000000"
-              className="w-full md:w-[320px] h-[51.56px]  bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
+          {["firstname", "lastname", "emailaddress", "phonenumber"].map(
+            (field) => (
+              <div key={field}>
+                <label
+                  htmlFor={field}
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  {field === "emailaddress" ? "Email Address" : field}
+                </label>
+                <input
+                  type={
+                    field === "emailaddress"
+                      ? "email"
+                      : field === "phonenumber"
+                      ? "tel"
+                      : "text"
+                  }
+                  id={field}
+                  value={form[field]}
+                  onChange={handleInputChange}
+                  placeholder={`Enter ${field}`}
+                  className="w-full md:w-[320px] h-[51.56px] bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
+                />
+              </div>
+            )
+          )}
         </div>
       </div>
 
-      <div className=" flex items-center justify-center py-4">
+      <div className="flex items-center justify-center py-4">
         <button
-          type="submit"
-          className="bg-[#3252DF] text-white font-normal text-lg  rounded-md  w-[300px] h-[50px]"
+          onClick={handleSubmit}
+          type="button"
+          className={`${
+            isFormComplete
+              ? "bg-[#3252DF] text-white"
+              : "bg-[#F5F6F8] text-[#B2B2B2]"
+          } font-normal text-lg  rounded-md  w-[300px] h-[50px]`}
+          disabled={!isFormComplete}
         >
           Continue to Book
         </button>
       </div>
-      <div className="flex items-center justify-center py-4">
+      <div className="flex text-center justify-center py-4">
         <button
-          type="submit"
+          type="button"
+          onClick={handleCancel}
           className="bg-[#F5F6F8] text-[#B2B2B2] font-normal text-lg  rounded-md  w-[300px] h-[50px]"
         >
           Cancel

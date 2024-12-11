@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ApartmentFeatures } from "../constant/ApartmentFeatures";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from "react-router-dom";
+
 
 const Abouttheplace = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -24,24 +26,28 @@ const Abouttheplace = () => {
               About the place
             </h3>
             <p className="text-[#b0b0b0] text-base ">
-              Lorem ipsum dolor for your design, website, and copywriting works.
-              Use our tool to generate chunks of text that is free from
-              repetition and copyright claims. Take Action. 3D Images Increase
-              Sales. Learn More. Sell More Onlie Today.
+              Founded in 1996 in Amsterdam, Booking.com has grown from a small
+              Dutch start-up to one of the world’s leading digital travel
+              companies. Part of Booking Holdings Inc. (NASDAQ: BKNG),
+              Booking.com’s mission is to make it easier for everyone to
+              experience the world.
             </p>
             <p className="text-[#b0b0b0] text-base ">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
+              By investing in technology that takes the friction out of travel,
+              Booking.com seamlessly connects millions of travelers to memorable
+              experiences, a variety of transportation options, and incredible
+              places to stay – from homes to hotels, and much more. As one of
+              the world’s largest travel marketplaces for both established
+              brands and entrepreneurs of all sizes, Booking.com enables
+              properties around the world to reach a global audience and grow
+              their businesses.
             </p>
             <p className="text-[#b0b0b0] text-base ">
-              Design is a plan or specifiaction for the construction of an
-              object or system or for the implementation of an activity or
-              process, or the result of that plan or specification in the form
-              of a prototype, product or process. The national agency for
-              design: enabling Singapore to use design for economic growth and
-              to make lives better.
+              Booking.com is available in 43 languages and offers more than 28
+              million reported accommodation listings, including over 6.6
+              million homes, apartments, and other unique places to stay.
+              Wherever you want to go and whatever you want to do, Booking.com
+              makes it easy and supports you with 24/7 customer support..
             </p>
           </div>
           <div className="pt-4">
@@ -73,7 +79,7 @@ const Abouttheplace = () => {
               Start Booking
             </h3>
             <p className="text-[#1ABC9C] text-3xl lg:text-4xl font-medium">
-              $280{" "}
+              $280
               <span className="text-[#B0B0B0] text-2xl lg:text-4xl font-light">
                 per night
               </span>
@@ -114,17 +120,18 @@ const Abouttheplace = () => {
               className="w-full max-w-xs mx-auto border border-gray-300 rounded px-2 py-1"
             />
             <p className="text-[16px] lg:text-[18px] text-[#B0B0B0] font-light">
-              You will pay{" "}
-              <span className="font-medium text-black"> $480 USD </span> for{" "}
+              You will pay
+              <span className="font-medium text-black"> $480 USD </span> for
               <span className="font-medium text-black"> 2 night </span>
             </p>
             <div className="py-4 lg:py-6">
-              <button
+              <Link
+                to="/infor"
                 className="book-btn text-base border-none rounded-lg bg-[#3252df] text-[#ffffff] py-2 px-10 lg:px-20"
                 style={{ boxShadow: "2px 2px 10px rgb(50, 82, 223)" }}
               >
                 Continue Book
-              </button>
+              </Link>
             </div>
           </div>
         </div>

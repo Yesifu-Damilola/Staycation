@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { supabase } from "./../../../supabase/supabase";
-import { useQuery } from "@tanstack/react-query";
+import { useFetch } from "../../../hook/useFetch";
 
 // const HotelDetails = () => {
 //   const { id } = useParams();
@@ -123,36 +122,17 @@ import { useQuery } from "@tanstack/react-query";
 // };
 // export default HotelDetails;
 
-const fetchHotelDetails = async (id) => {
-  const { data, error } = await supabase
-    .from("hotels")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  if (!data || error) {
-    throw new Error("NOT_FOUND");
-  }
-  return data;
-};
-
 const HotelDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const query = {
+    apiName: "hotels",
+    key: "id",
+    value: id,
+  };
 
-  const {
-    data: hotel,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["hotelDetails", id],
-    queryFn: () => fetchHotelDetails(id),
-    enabled: !!id,
-    staleTime: 10000,
-    refetchInterval: 15000,
-    retry: false,
-  });
+  const { data: hotel, isLoading, isError, error } = useFetch(query);
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -185,8 +165,8 @@ const HotelDetails = () => {
       >
         Go Back
       </button>
-      <h1 className="text-3xl font-bold mb-4">{hotel.name}</h1>
-      <p className="text-[#B0B0B0]  mb-6">{hotel.location}</p>
+      <h1 className="text-3xl font-bold mb-4">{hotel?.name}</h1>
+      <p className="text-[#B0B0B0]  mb-6">{hotel?.location}</p>
       <img
         src={hotel.images[0]}
         alt={hotel.name}

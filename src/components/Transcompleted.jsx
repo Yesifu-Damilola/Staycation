@@ -1,7 +1,15 @@
 import { Check } from "lucide-react";
 import succes from "@/assets/succes .png";
+import { useNavigate } from "react-router-dom";
 
 const Transcompleted = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate("/");
+  };
+
+  
   return (
     <div className="wrapper px-4 py-6">
       <div className="flex items-center justify-center py-10 gap-24 relative">
@@ -31,7 +39,8 @@ const Transcompleted = () => {
       </div>
       <div className="flex items-center justify-center py-5">
         <button
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
           className="bg-[#3252DF] text-white font-normal text-lg  rounded-md  w-[300px] h-[50px]"
         >
           Back to Home

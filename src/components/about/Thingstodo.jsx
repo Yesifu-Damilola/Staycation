@@ -47,7 +47,7 @@ const Thingstodo = () => {
             className="w-[120px] md:w-[180px] h-[24px] md:h-[36px] mx-auto md:mx-0"
           />
           <p className="text-lg md:text-3xl font-normal text-[#152C5B] leading-8 md:leading-10">
-            As a wife I can pick a great trip with{" "}
+            As a wife I can pick a great trip with
             <br className="hidden md:block" /> my own lovely family ... thank
             you!
           </p>

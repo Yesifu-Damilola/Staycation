@@ -3,7 +3,13 @@ import { useFetch } from "../../../hook/useFetch";
 import { CustomSpan } from "../../constant/CustomSpan";
 
 const Mostpicked = () => {
-  const { data: hotels, isLoading, isError, error } = useFetch("most picked");
+  const query = {
+    apiName: "hotels",
+    key: "category",
+    value: "most picked",
+  };
+  const { data: hotels, isLoading, isError, error } = useFetch(query);
+  console.log(hotels);
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen">

@@ -5,8 +5,13 @@ import home2 from "../../../src/assets/home2.png";
 import home3 from "../../../src/assets/home3.png";
 
 const Housedails = () => {
-  const params = useParams();
-  const { data, status, error } = useFetch(`hotels/${params?.id}`);
+  const { id } = useParams();
+  const query = {
+    apiName: "hotels",
+    key: "id",
+    value: id,
+  };
+  const { data, status, error } = useFetch(query);
 
   if (status) {
     return (
@@ -46,9 +51,7 @@ const Housedails = () => {
           </Link>
         </div>
         <div className="resort-rio items-center justify-center mx-auto pt-4">
-          <h3 className="text-xl font-bold text-[#152c5b]">
-            {data?.name}
-          </h3>
+          <h3 className="text-xl font-bold text-[#152c5b]">{data?.name}</h3>
           <p className="text-[#b0b0b0] text-[18px] pt-4">{data?.location}</p>
         </div>
       </div>

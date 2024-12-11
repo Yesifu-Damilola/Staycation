@@ -1,8 +1,43 @@
 import bca from "@/assets/bca.png";
 import mandiri from "@/assets/mandiri.png";
 import { Check } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FormInput } from "./constant/FormInput";
 
 const Transactionpayment = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    uploadProof: "",
+    bankOrigin: "",
+    senderName: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevForm) => ({
+      ...prevForm,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    if (Object.keys(formData).length > 0) {
+      navigate("/transcompleted");
+    }
+  };
+
+  const handleCancel = () => {
+    setFormData({
+      uploadProof: "",
+      bankOrigin: "",
+      senderName: "",
+    });
+  };
+
+  const isFormComplete =
+    formData.uploadProof && formData.bankOrigin && formData.senderName;
+
   return (
     <section className="wrapper px-4 py-6">
       <div className="flex items-center justify-center py-10 gap-24 relative">
@@ -67,61 +102,44 @@ const Transactionpayment = () => {
         </div>
         <div className="hidden md:block border-l-2 border-[#E5E5E5] md:h-[502px]"></div>
         <div className="space-y-8 w-full max-w-md">
-          <div>
-            <label
-              htmlFor="uploadProof"
-              className="block text-lg font-medium text-black"
-            >
-              Upload Transfer Proof
-            </label>
-            <input
-              type="text"
-              id="uploadProof"
-              placeholder="transferproof.png"
-              className="w-full md:w-[320px] h-[51.56px] bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="bankOrigin"
-              className="block text-lg font-medium text-black"
-            >
-              Bank Origin
-            </label>
-            <input
-              type="text"
-              id="bankOrigin"
-              placeholder="BCA"
-              className="w-full md:w-[320px] h-[51.56px] bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="senderName"
-              className="block text-lg font-medium text-black"
-            >
-              Sender Name
-            </label>
-            <input
-              type="text"
-              id="senderName"
-              placeholder="Ihsan Adi"
-              className="w-full md:w-[320px] h-[51.56px] bg-[#F5F6F8] border-gray-300 rounded-[4px] pl-3 focus:outline-none shadow-sm mt-1"
-            />
-          </div>
+          <FormInput
+            id="uploadProof"
+            label="Upload Transfer Proof"
+            value={formData.uploadProof}
+            onChange={handleInputChange}
+            placeholder="transferproof.png"
+          />
+          <FormInput
+            id="bankOrigin"
+            label="Bank Origin"
+            value={formData.bankOrigin}
+            onChange={handleInputChange}
+            placeholder="BCA"
+          />
+          <FormInput
+            id="senderName"
+            label="Sender Name"
+            value={formData.senderName}
+            onChange={handleInputChange}
+            placeholder="Ihsan Adi"
+          />
         </div>
       </div>
-      <div className=" flex items-center justify-center py-4">
-        <button
-          type="submit"
-          className="bg-[#3252DF] text-white font-normal text-lg  rounded-md  w-[300px] h-[50px]"
-        >
-          Confirm Payment
-        </button>
-      </div>
+      {isFormComplete && (
+        <div className=" flex items-center justify-center py-4">
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="bg-[#3252DF] text-white font-normal text-lg  rounded-md  w-[300px] h-[50px]"
+          >
+            Confirm Payment
+          </button>
+        </div>
+      )}
       <div className="flex items-center justify-center py-4">
         <button
-          type="submit"
+          type="button"
+          onClick={handleCancel}
           className="bg-[#F5F6F8] text-[#B2B2B2] font-normal text-lg  rounded-md  w-[300px] h-[50px]"
         >
           Cancel
