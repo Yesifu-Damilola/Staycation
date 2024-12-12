@@ -38,7 +38,8 @@ const Mostpicked = () => {
     <section className="wrapper ">
       <h3 className="text-[#152c5b] text-2xl font-bold px-4 ">Most Picked</h3>
       <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] gap-6 place-items-center p-4 ">
-        <div
+        <Link
+          to={`/hotel/${hotels[0]?.id}`}
           className={` bg-cover bg-center w-full h-[460px] relative rounded-3xl`}
           style={{
             background: `url(${hotels[0]?.images[0]})`,
@@ -55,11 +56,11 @@ const Mostpicked = () => {
           <p className="text-[#152c5b] text-base absolute bottom-2 left-5">
             {hotels[0]?.location}
           </p>
-        </div>
+        </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full ">
           {hotels?.slice(1, 5).map((resort) => (
             <Link
-              to={`/${resort?.id}`}
+              to={`/hotel/${resort?.id}`}
               key={resort?.id}
               className={`relative w-full h-[215px] rounded-2xl px-4 bg-cover bg-center`}
               style={{ background: `url(${resort.images[0]})` }}

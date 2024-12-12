@@ -4,13 +4,13 @@ export const Navbar2 = () => {
   return (
     <div>
       <div className="wrapper px-4 py-6">
-        <div className="flex items-center justify-between px-2">
+        <div className="flex items-center justify-center px-2">
           <div>
             <Link to="/" className="text-2xl font-bold text-gray-800">
               <span className="text-blue-500">Stay</span>cation.
             </Link>
           </div>
-
+{/* 
           <div className="block md:hidden">
             <button className="focus:outline-none">
               <svg
@@ -28,9 +28,9 @@ export const Navbar2 = () => {
                 ></path>
               </svg>
             </button>
-          </div>
+          </div> */}
 
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <ul className="flex gap-4 md:gap-8">
               <li>
                 <Link
@@ -65,7 +65,7 @@ export const Navbar2 = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
