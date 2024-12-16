@@ -28,16 +28,10 @@ export const useFetch = (query) => {
     }
   };
 
-  const { data, error, isLoading, isError } = useQuery({
+  const queryData = useQuery({
     queryKey: [query?.value ?? "", query?.apiName],
     queryFn: fetchHotels,
   });
 
-  console.log(data);
-  return {
-    data,
-    isLoading,
-    isError,
-    error,
-  };
+  return queryData;
 };

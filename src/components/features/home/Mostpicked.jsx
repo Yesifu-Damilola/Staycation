@@ -77,6 +77,7 @@ const Mostpicked = () => {
               <p className={`text-base absolute bottom-2 left-5 text-black `}>
                 {resort.location}
               </p>
+              
             </Link>
           ))}
         </div>

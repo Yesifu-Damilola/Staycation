@@ -1,41 +1,7 @@
-import { Link, useParams } from "react-router-dom";
-import { useFetch } from "../../hook/useFetch";
-import home from "../../../src/assets/home.png";
-import home2 from "../../../src/assets/home2.png";
-import home3 from "../../../src/assets/home3.png";
+/* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 
-const Housedails = () => {
-  const { id } = useParams();
-  const query = {
-    apiName: "hotels",
-    key: "id",
-    value: id,
-  };
-  const { data, status, error } = useFetch(query);
-
-  if (status) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <p>Error: {error}</p>
-      </div>
-    );
-  }
-
-  if (!data) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <p>No data available</p>
-      </div>
-    );
-  }
+const Housedails = ({ data }) => {
   return (
     <section className="wrapper px-4 mt-8">
       <div className="flex flex-col sm:flex-row ">
@@ -56,27 +22,35 @@ const Housedails = () => {
         </div>
       </div>
 
-      <div className="homes flex flex-col lg:flex-row gap-4 mt-6">
+      <div
+        className={`homes ${
+          data?.images?.length > 1 ? "flex flex-col lg:flex-row gap-4" : ""
+        } mt-6`}
+      >
         <div className="home1 ">
           <img
-            src={home}
+            src={data?.images[0]}
             alt="home1"
-            className="w-full h-auto rounded-lg object-cover"
+            className={`${
+              data?.images?.length > 1 ? "w-[643px]" : "w-full"
+            } md:h-[500px] h-[245px]  rounded-lg`}
           />
         </div>
-
-        <div className="home2-home3  grid grid-cols-1 gap-1">
-          <img
-            src={home2}
-            alt="home2"
-            className="home2 w-full h-auto rounded-lg object-cover"
-          />
-          <img
-            src={home3}
-            alt="home3"
-            className="home3 w-full h-auto rounded-lg object-cover"
-          />
-        </div>
+        {data?.images?.length > 1 && (
+          <div className="home2-home3  grid grid-cols-1 gap-1">
+            {data?.images &&
+              data?.images
+                ?.slice(1, 3)
+                .map((img) => (
+                  <img
+                    key={img}
+                    src={img}
+                    alt="home2"
+                    className="home2 w-[487px] h-[245px] rounded-lg object-cover"
+                  />
+                ))}
+          </div>
+        )}
       </div>
     </section>
   );

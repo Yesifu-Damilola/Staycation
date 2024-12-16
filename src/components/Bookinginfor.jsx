@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import cashvilles from "@/assets/Cashvilles.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import HotelContext from "../context/hotelContext";
 
 const Bookinginfor = () => {
+  const { hotel, clearHotel } = useContext(HotelContext);
+  console.log(hotel);
   const navigate = useNavigate();
   const [form, setForm] = useState({
     firstname: "",
@@ -26,12 +28,14 @@ const Bookinginfor = () => {
   };
 
   const handleCancel = () => {
+    clearHotel();
     setForm({
       firstname: "",
       lastname: "",
       emailaddress: "",
       phonenumber: "",
     });
+    navigate(-1);
   };
 
   const isFormComplete =
@@ -65,17 +69,19 @@ const Bookinginfor = () => {
       <div className="flex flex-col md:flex-row gap-8 items-center justify-center py-8">
         <div className="flex flex-col items-center text-center">
           <img
-            src={cashvilles}
+            src={hotel?.images[0]}
             alt="Cashville"
             className="w-full max-w-[420px] max-h-[270px] object-cover"
           />
           <div className="flex flex-row gap-14 mt-4">
             <div className="text-left">
-              <p className="text-lg font-semibold">Cashville</p>
-              <span className="text-gray-500">Kemang, Indonesia</span>
+              <p className="text-lg font-semibold">{hotel?.name}</p>
+              <span className="text-gray-500">{hotel?.location}</span>
             </div>
             <p className="text-xl font-medium text-[#1ABC9C]">
-              $480 USD <span className="text-gray-500"> for </span> 2 nights
+              ${Number(hotel?.price) * Number(hotel?.count)} USD{" "}
+              <span className="text-gray-500"> for </span> {hotel?.count}{" "}
+              {hotel?.duration}
             </p>
           </div>
         </div>

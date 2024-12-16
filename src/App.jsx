@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./index.css";
-import Home from "./pages/home";
 import About from "./pages/about";
 // import Info from "./pages/info";
 import Infor from "./pages/infor";
@@ -13,6 +12,7 @@ import Mostpicked from "./components/features/home/Mostpicked";
 import NotFound from "./components/NotFound";
 import { Layout } from "./components/layout";
 import { Layout2 } from "./components/LayoutWithNavbar2/inddex";
+import Home from "./pages/home";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/info" element={<Info />} /> */}
         <Route
-          path="/infor"
+          path="/hotel/information"
           element={
             <Layout2>
               <Infor />
