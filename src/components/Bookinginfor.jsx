@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import HotelContext from "../context/hotelContext";
 
 const Bookinginfor = () => {
-  const { hotel, clearHotel } = useContext(HotelContext);
+  const { hotel, clearHotel, setUser, setStep } = useContext(HotelContext);
   console.log(hotel);
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -21,8 +21,15 @@ const Bookinginfor = () => {
     }));
   };
 
+  // const handleSubmit = () => {
+  //   if (Object.keys(form).length > 0) {
+  //     navigate("/payments");
+  //   }
+  // };
   const handleSubmit = () => {
-    if (Object.keys(form).length > 0) {
+    if (Object.values(form).every((value) => value.trim() !== "")) {
+      setUser(form);
+      setStep(2);
       navigate("/payments");
     }
   };
@@ -35,6 +42,7 @@ const Bookinginfor = () => {
       emailaddress: "",
       phonenumber: "",
     });
+
     navigate(-1);
   };
 
@@ -46,8 +54,10 @@ const Bookinginfor = () => {
       <div className="flex items-center justify-center py-10 gap-24 relative">
         <hr className="absolute w-[244.5px] border-t-2 border-[#E5E5E5] " />
         <div className="relative border p-1 rounded-full border-[#E5E5E5]">
-          <span className="rounded-full bg-[#E5E5E5] text-[#898989] w-8 h-8 flex items-center justify-center">
-            1
+          <span
+            className={`rounded-full bg-[#E5E5E5] text-[#898989] w-8 h-8 flex items-center justify-center`}
+          >
+            {"1"}
           </span>
         </div>
         <span className="relative rounded-full bg-[#E5E5E5] text-[#898989] w-8 h-8 flex items-center justify-center">

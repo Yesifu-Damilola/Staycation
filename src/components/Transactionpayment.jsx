@@ -1,12 +1,15 @@
 import bca from "@/assets/bca.png";
 import mandiri from "@/assets/mandiri.png";
 import { Check } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormInput } from "./constant/FormInput";
+import HotelContext from "../context/hotelContext";
 
 const Transactionpayment = () => {
+  const { user, hotel, step, setStep, setPayment } = useContext(HotelContext);
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     uploadProof: "",
     bankOrigin: "",
@@ -23,6 +26,8 @@ const Transactionpayment = () => {
 
   const handleSubmit = () => {
     if (Object.keys(formData).length > 0) {
+      setPayment(formData);
+      setStep(3);
       navigate("/transcompleted");
     }
   };
@@ -37,17 +42,31 @@ const Transactionpayment = () => {
 
   const isFormComplete =
     formData.uploadProof && formData.bankOrigin && formData.senderName;
-
+  function calculatePercentage(amount, percentage) {
+    return (amount * percentage) / 100;
+  }
   return (
     <section className="wrapper px-4 py-6">
       <div className="flex items-center justify-center py-10 gap-24 relative">
         <hr className="absolute w-[244.5px] border-t-2 border-[#E5E5E5] " />
-        <span className="relative rounded-full bg-[#1ABC9C] text-white w-8 h-8 flex items-center justify-center">
-          <Check />
+        <span
+          className={`relative rounded-full ${
+            step >= 1 && user
+              ? "bg-[#1ABC9C] text-white"
+              : "bg-[#E5E5E5] text-[#898989]"
+          } w-8 h-8 flex items-center justify-center`}
+        >
+          {step >= 1 && hotel !== null ? <Check /> : "1"}
         </span>
         <div className="relative border p-1 rounded-full border-[#E5E5E5]">
-          <span className="rounded-full bg-[#E5E5E5] text-[#898989] w-8 h-8 flex items-center justify-center">
-            2
+          <span
+            className={`rounded-full ${
+              step >= 2 && user !== null
+                ? "bg-[#1ABC9C] text-white"
+                : "bg-[#E5E5E5] text-[#898989]"
+            } w-8 h-8 flex items-center justify-center`}
+          >
+            {step >= 2 && user !== null ? <Check /> : "2"}
           </span>
         </div>
         <span className="relative rounded-full bg-[#E5E5E5] text-[#898989] w-8 h-8 flex items-center justify-center">
@@ -67,10 +86,15 @@ const Transactionpayment = () => {
           <div className="text-left space-y-1">
             <span className="text-base text-black">Tax: 10%</span>
             <p className="text-base text-black">
-              Sub total: <span className="font-medium">$480 USD</span>
+              Sub total:{" "}
+              <span className="font-medium">${hotel?.price} USD</span>
             </p>
             <p className="text-base text-black">
-              Total: <span className="font-medium">$580 USD</span>
+              Total:{" "}
+              <span className="font-medium">
+                ${calculatePercentage(hotel?.price, 10) + Number(hotel?.price)}{" "}
+                USD
+              </span>
             </p>
           </div>
           <div className="mt-4">

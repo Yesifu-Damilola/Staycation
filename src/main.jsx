@@ -5,15 +5,18 @@ import App from "./App.jsx";
 import "./index.css";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { HotelContextProvider } from "./context/hotelContext.jsx";
+import { BookingContextProvider } from "./context/bookingContext.jsx";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+      <BookingContextProvider>
     <HotelContextProvider>
-      <QueryClientProvider client={queryClient}>
-        <App />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
+        <QueryClientProvider client={queryClient}>
+          <App />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
     </HotelContextProvider>
+      </BookingContextProvider>
   </StrictMode>
 );

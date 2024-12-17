@@ -6,10 +6,10 @@ const Transcompleted = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
+    localStorage.clear();
     navigate("/");
   };
 
-  
   return (
     <div className="wrapper px-4 py-6">
       <div className="flex items-center justify-center py-10 gap-24 relative">

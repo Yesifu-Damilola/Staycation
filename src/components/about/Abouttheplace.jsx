@@ -13,10 +13,10 @@ import ic_refrigerators from "@/assets/ic_refrigerators.png";
 import ic_tv from "@/assets/ic_tv.png";
 import HotelContext from "../../context/hotelContext";
 const Abouttheplace = ({ data }) => {
-  const { setHotel } = useContext(HotelContext);
+  const { setHotel, setStep } = useContext(HotelContext);
   const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(data?.durationTime);
 
   const handleDecrease = () => {
     setCount((prevCount) => Math.max(prevCount - 1, 1));
@@ -60,6 +60,7 @@ const Abouttheplace = ({ data }) => {
       count,
       startDate,
     });
+    setStep(1);
 
     navigate("/hotel/information");
   };
