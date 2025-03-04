@@ -21,11 +21,6 @@ const Bookinginfor = () => {
     }));
   };
 
-  // const handleSubmit = () => {
-  //   if (Object.keys(form).length > 0) {
-  //     navigate("/payments");
-  //   }
-  // };
   const handleSubmit = () => {
     if (Object.values(form).every((value) => value.trim() !== "")) {
       setUser(form);

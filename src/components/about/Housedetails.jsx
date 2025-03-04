@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const Housedails = ({ data }) => {
+const Housedetails = ({ data }) => {
   return (
     <section className="wrapper px-4 mt-8">
       <div className="flex flex-col sm:flex-row ">
@@ -56,4 +56,4 @@ const Housedails = ({ data }) => {
   );
 };
 
-export default Housedails;
+export default Housedetails;

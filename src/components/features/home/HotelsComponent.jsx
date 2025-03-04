@@ -6,8 +6,6 @@ import { HouseNotFound } from "../../HouseNotFound";
 import HotelItems from "./HotelItems";
 
 const HotelsComponent = ({ categoryName }) => {
-  // const { data, status, error } = useFetch(categoryName);
-
   const query = {
     apiName: "hotels",
     key: "category",

@@ -1,4 +1,4 @@
-import Housedails from "../../components/about/Housedails";
+import Housedetails from "../../components/about/Housedetails";
 import Abouttheplace from "../../components/about/Abouttheplace";
 import Thingstodo from "../../components/about/Thingstodo";
 import { Layout } from "../../components/layout";
@@ -31,7 +31,7 @@ const About = () => {
     <Layout>
       {data && status === "success" ? (
         <>
-          <Housedails data={data} />
+          <Housedetails data={data} />
           <Abouttheplace data={data} />
           <Thingstodo />
         </>
