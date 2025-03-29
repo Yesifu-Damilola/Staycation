@@ -43,7 +43,9 @@ const Mostpicked = () => {
           className={` bg-cover bg-center w-full h-[460px] relative rounded-3xl`}
           style={{
             background: `url(${hotels[0]?.images[0]})`,
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: "no-repeat ",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
           }}
         >
           <CustomSpan
@@ -63,7 +65,12 @@ const Mostpicked = () => {
               to={`/hotel/${resort?.id}`}
               key={resort?.id}
               className={`relative w-full h-[215px] rounded-2xl px-4 bg-cover bg-center`}
-              style={{ background: `url(${resort.images[0]})` }}
+              style={{
+                background: `url(${resort.images[0]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
             >
               <CustomSpan
                 text={`$${resort?.price} per ${resort.duration}`}
@@ -77,7 +84,6 @@ const Mostpicked = () => {
               <p className={`text-base absolute bottom-2 left-5 text-black `}>
                 {resort.location}
               </p>
-              
             </Link>
           ))}
         </div>
