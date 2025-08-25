@@ -5,26 +5,23 @@ import { useQuery } from "@tanstack/react-query";
 export const useFetch = (query) => {
   const fetchHotels = async () => {
     let queryData = supabase.from(query?.apiName).select("*");
-
-    if (query?.value && query.key === "id") {
-      const { data, error } = await queryData
-        .eq(query.key, query.value)
-        .single();
-
-      if (error) {
-        console.log(error);
-        throw new Error(error.message);
+    try {
+      if (query?.value && query.key === "id") {
+        const { data, error } = await queryData
+          .eq(query.key, query.value)
+          .single();
+        if (error) throw new Error(error.message);
+        return data ?? [];
       }
-      return data;
-    }
-
-    if (query?.value && query.key !== "id") {
-      const { data, error } = await queryData.eq(query.key, query.value);
-      if (error) {
-        console.log(error);
-        throw new Error(error.message);
+      if (query?.value && query.key !== "id") {
+        const { data, error } = await queryData.eq(query.key, query.value);
+        if (error) throw new Error(error.message);
+        return data ?? [];
       }
-      return data;
+      return [];
+    } catch (err) {
+      console.error(err);
+      throw err;
     }
   };
 

@@ -1,17 +1,11 @@
 import { useState } from "react";
 
-
 export const Toggle = () => {
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-const toggleMenu = () => {
-  setIsMenuOpen(!isMenuOpen);
-};
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="block md:hidden">
       <button
-        onClick={toggleMenu}
+        onClick={() => setIsMenuOpen((open) => !open)}
         className="focus:outline-none"
         aria-label="Toggle Menu"
       >
@@ -27,9 +21,9 @@ const toggleMenu = () => {
             strokeLinejoin="round"
             strokeWidth="2"
             d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
-          ></path>
+          />
         </svg>
       </button>
     </div>
   );
-}
+};

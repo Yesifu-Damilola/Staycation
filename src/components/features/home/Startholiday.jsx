@@ -22,18 +22,13 @@ const Startholiday = () => {
           .single();
 
         if (error) {
-          throw error(error);
+          throw new Error(error.message || "Unknown error");
         }
         setData(statistics);
-
-        if (statistics?.images) {
-          setImages(statistics.images);
-        } else {
-          setImages([]);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError(error.message);
+        setImages(statistics?.images || []);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setError(err.message || "Failed to fetch data");
       } finally {
         setStatus(false);
       }
@@ -54,22 +49,44 @@ const Startholiday = () => {
   if (status) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p>Loading...</p>
+        <div className="text-center">
+          <div className="loader mx-auto mb-4" />
+          <p className="text-lg text-gray-700">Loading holiday statistics...</p>
+        </div>
       </div>
     );
   }
   if (error) {
+    console.error("Startholiday error:", error);
     return (
       <div className="flex items-center justify-center h-screen">
-        <p>Error: {error}</p>
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-2">
+            Something went wrong
+          </h2>
+          <p className="text-gray-700 mb-4">
+            We couldn&apos;t load the holiday statistics. Please try again
+            later.
+          </p>
+          <details className="text-xs text-gray-400">
+            <summary>Show error details</summary>
+            <pre>{String(error)}</pre>
+          </details>
+        </div>
       </div>
     );
   }
-
   if (!data) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p>No data available</p>
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-600 mb-2">
+            No Data Available
+          </h2>
+          <p className="text-gray-700">
+            There are currently no holiday statistics to display.
+          </p>
+        </div>
       </div>
     );
   }

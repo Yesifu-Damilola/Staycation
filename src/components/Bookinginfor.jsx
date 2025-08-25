@@ -4,7 +4,6 @@ import HotelContext from "../context/hotelContext";
 
 const Bookinginfor = () => {
   const { hotel, clearHotel, setUser, setStep } = useContext(HotelContext);
-  console.log(hotel);
   const navigate = useNavigate();
   const [form, setForm] = useState({
     firstname: "",
@@ -13,13 +12,8 @@ const Bookinginfor = () => {
     phonenumber: "",
   });
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [id]: value,
-    }));
-  };
+  const handleInputChange = ({ target: { id, value } }) =>
+    setForm((prev) => ({ ...prev, [id]: value }));
 
   const handleSubmit = () => {
     if (Object.values(form).every((value) => value.trim() !== "")) {
@@ -31,18 +25,11 @@ const Bookinginfor = () => {
 
   const handleCancel = () => {
     clearHotel();
-    setForm({
-      firstname: "",
-      lastname: "",
-      emailaddress: "",
-      phonenumber: "",
-    });
-
+    setForm({ firstname: "", lastname: "", emailaddress: "", phonenumber: "" });
     navigate(-1);
   };
 
-  const isFormComplete =
-    form.firstname && form.lastname && form.emailaddress && form.phonenumber;
+  const isFormComplete = Object.values(form).every((v) => v.trim() !== "");
 
   return (
     <section className="container mx-auto px-4 py-6">
